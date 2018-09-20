@@ -22,6 +22,12 @@ If the "compressed" string would not become smaller than the original string, yo
 
 `compress("aaa")` => `"a3"`
 
+`compress("A")` => `"A"`
+
+`compress("AA")` => `"AA"`
+
+`compress("AAA")` => `"A3"`
+
 `compress("abbcccddddeeeee")` => `"a1b2c3d4e5"`
 
 # Optional Bonus 1
