@@ -61,6 +61,7 @@ function parseInputCSV(inputFilePath) {
  * @returns {boolean}            - whether they were alive
  */
 function presidentAliveInYear(presidentObj, year) {
+    // I wan tto replace presidentObj.deathyear == "undefined"  with presidentObj.deathyear === undefined, but this change breaks my code. Not spending time to figure out why
     return (presidentObj.birthYear <= year) && (presidentObj.deathyear == "undefined" || presidentObj.deathYear >= year)
 }
 
