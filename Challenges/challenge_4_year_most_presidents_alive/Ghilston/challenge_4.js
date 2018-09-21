@@ -61,7 +61,7 @@ function parseInputCSV(inputFilePath) {
  * @returns {boolean}            - whether they were alive
  */
 function presidentAliveInYear(presidentObj, year) {
-    return (presidentObj.birthYear <= year) && (presidentObj.deathyear === undefined || presidentObj.deathYear >= year)
+    return (presidentObj.birthYear <= year) && (presidentObj.deathyear == "undefined" || presidentObj.deathYear >= year)
 }
 
 /**
