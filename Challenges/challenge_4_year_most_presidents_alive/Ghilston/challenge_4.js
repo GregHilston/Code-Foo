@@ -61,7 +61,7 @@ function parseInputCSV(inputFilePath) {
  * @returns {boolean}            - whether they were alive
  */
 function presidentAliveInYear(presidentObj, year) {
-    return (presidentObj.birthYear <= year) && (presidentObj.deathyear == "undefined" || presidentObj.deathYear >= year)
+    return (presidentObj.birthYear <= year) && (presidentObj.deathyear === undefined || presidentObj.deathYear >= year)
 }
 
 /**
@@ -69,7 +69,7 @@ function presidentAliveInYear(presidentObj, year) {
  *
  * @param  {object} presidentsObj - object of presidents data
  * @param  {number} year          - year to check if presidentsObj was alive during
- * @returns {list}              - list of presidents alive during given year
+ * @returns {string[]}              - list of presidents alive during given year
  */
 function presidentsAliveInYear(presidentsObj, year) {
     let alivePresidents = []
@@ -136,7 +136,7 @@ function findLatestYear(presidentsObj) {
  * yearsWithMostLivingPresidents - Finds the years with the most presidents alive
  *
  * @param  {Object} presidentsObj - object of all presidents data
- * @returns {list}                - list of years with most presidents alive
+ * @returns {number[]}                - list of years with most presidents alive
  */
 function yearsWithMostLivingPresidents(presidentsObj) {
     const earliestYear = findEarliestYear(presidentsObj)
@@ -172,7 +172,7 @@ function yearsWithMostLivingPresidents(presidentsObj) {
 /**
  * findYearsWithMostLivingPresidents - parses input file and finds years with most living presidents
  *
- * @returns {list} - list of years with most presidents alive
+ * @returns {number[]} - list of years with most presidents alive
  */
 function findYearsWithMostLivingPresidents() {
     const presidentsObj = parseInputCSV(inputFile)
