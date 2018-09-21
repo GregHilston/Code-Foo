@@ -145,7 +145,6 @@ function yearsWithMostLivingPresidents(presidentsObj) {
 
     for(let year = earliestYear; year <= latestYear; year++) {
         presidentsAliveInYearsObj[year] = presidentsAliveInYear(presidentsObj, year)
-
     }
 
     let yearsWithMostPresidentsAlive = []
