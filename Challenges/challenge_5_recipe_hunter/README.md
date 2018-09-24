@@ -30,7 +30,7 @@ _Disclaimer: This program should in no way be used by individuals with real alle
 
 # Examples
 
-fetchFilteredRecipes("candy", ["peanut]) => 
+fetchFilteredRecipes("candy", ["peanut]) =>
 
 > {
    "title":"Recipe Puppy",
