@@ -104,7 +104,7 @@ Note that the following result was filtered:
 
 # Optional Bonus 1
 
-Implement some function cache, so if your function is called with the same query and allergens, then serve the locally cached result instead of hitting the API.
+Implement some function cache, so if your function is called with the same query and allergens, then serve the locally cached result instead of hitting the API. This cache does not need to survive restarts of the program. In other words, the cache can exist in memory and does not need to be written to disk.
 
 # Disclaimer
 
