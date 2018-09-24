@@ -16,6 +16,10 @@ Feel free to hit me up with any comments or questions on here, Slack or Hipchat.
 
 Food allergies are becoming more problematic ever year. Your task is to write a small program to help find recipes that would be safe to eat with a given set of allergies. For this challenge you'll be reaching out to a free and public API called "Recipe Puppy".
 
+To read more about Recipe Puppy's API, see [here](http://www.recipepuppy.com/about/api/)
+
+_Note: You will not need to use the `i` or `p` parameter for this challenge. Only the `q` parameter will be needed_
+
 ## Input description
 
 Your input will be a search query, like "candy", and a list of allergens, like ["peanut"].
