@@ -24,7 +24,7 @@ The search query will be a non-empty string and the list of allergens will be a 
 
 ## Output description
 
-You're goal is to hit the API with the given search query, fetching all the recipes they have for that query, and filtering out any recipes with any of the given allergens as an ingredient. Use substring matching to find allergens, so given allergen of "peanut" should filter out "peanut butter". Your output should be json, formatted in the same way that Recipe Puppy returns.
+You're goal is to hit the API with the given search query, fetching all the recipes they have for that query, and filtering out any recipes with any of the given allergens as an ingredient. Use substring matching to find allergens, so given allergen of "peanut" should filter out "peanut butter". Your output should be valid json, formatted in the same way that Recipe Puppy returns.
 
 _Disclaimer: This program should in no way be used by individuals with real allergies._
 
