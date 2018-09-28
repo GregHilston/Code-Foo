@@ -3,7 +3,7 @@
 const request = require('request')  // used to make http requests
 const util = require('util')        // used to print objects
 
-function fetchFilteredRecipes(query, allergens) {
+function fetchFilteredRecipes(query, allergens, callback) {
     const baseUrl = "http://www.recipepuppy.com/api/?q="
     var filtered_recipes = []
 
@@ -13,13 +13,7 @@ function fetchFilteredRecipes(query, allergens) {
             return err
         }
 
-        // console.log("err: " + err)
-        // console.log("res: " + util.inspect(res, false, null, true))
-        // console.log("body: " + util.inspect(body, false, null, true))
-
-        body.results.forEach((recipe, index, array) => {
-            // console.log("recipe: " + util.inspect(recipe, false, null, true))
-            
+        body.results.forEach((recipe, index, array) => {            
             var ingredients = recipe.ingredients.split(',')
             
             ingredients = ingredients.map(function(ingredient) {
@@ -37,14 +31,14 @@ function fetchFilteredRecipes(query, allergens) {
             if (foundAllergens.length == 0) {
                 filtered_recipes.push(recipe)
             }
-
-            // recipe.ingredients.forEach(function(ingredient) {
-            //     console.log(ingredient);
-            // });
         })
 
-        console.log(filtered_recipes)
+        callback(filtered_recipes)
       })
 }
 
-fetchFilteredRecipes("candy", ["peanut"])
+function receivedFilteredRecipes(filteredRecipes) {
+    console.log(filteredRecipes)
+}
+
+fetchFilteredRecipes("candy", ["peanut"], receivedFilteredRecipes)
