@@ -4,6 +4,26 @@ const request = require('request')  // used to make http requests
 const util = require('util')        // used to print objects
 const assert = require('assert')    // used for testing
 
+var cache = {} // optimization, satisfying bonus 1
+
+function lookup_cache(query) {
+    if(query in cache) {
+        console.log("lookup_cache: hit")
+        return cache[query]
+    } else {
+        console.log("lookup_cache: miss")
+
+        return null
+    }
+}
+
+function add_cache(query, recipes) {
+    console.log("add_cache: query " + query + " recipes " + recipes)
+    console.log("\tbefore cache: " + console.dir(cache))
+    cache[query] = recipes
+    console.log("\tafter cache: " + console.dir(cache))
+}
+
 /**
  * fetchFilteredRecipes - Fetches all recipes based on query, that do not contain any of the allergens
  * 
@@ -13,36 +33,43 @@ const assert = require('assert')    // used for testing
  */
 function fetchFilteredRecipes(query, allergens, callback) {
     const baseUrl = "http://www.recipepuppy.com/api/?q="
+    var all_recipes = []
     var filtered_recipes = []
 
-    request(baseUrl + query, { json: true }, (err, res, body) => {
-        if (err) { 
-            console.log("fetchFilteredRecipes experience error: " + err)
-            return err
-        }
-
-        body.results.forEach((recipe, index, array) => {            
-            var ingredients = recipe.ingredients.split(',')
-            
-            ingredients = ingredients.map(function(ingredient) {
-                return ingredient.trim()
-            })
-
-            var foundAllergens = ingredients.filter((ingredient) => {
-                var subStringsIngredient = ingredient.split(' ').map(function(subStringIngredient) {
-                    return subStringIngredient.trim();
-                })
-
-                return allergens.some(r=> subStringsIngredient.indexOf(r) >= 0)
-            })
-
-            if (foundAllergens.length == 0) {
-                filtered_recipes.push(recipe)
-            }
-        })
-
+    if (lookup_cache(query) != null) {
         callback(filtered_recipes)
-      })
+    } else {
+        request(baseUrl + query, { json: true }, (err, res, body) => {
+            if (err) { 
+                console.log("fetchFilteredRecipes experience error: " + err)
+                return err
+            }
+    
+            body.results.forEach((recipe, index, array) => {            
+                var ingredients = recipe.ingredients.split(',')
+                
+                ingredients = ingredients.map(function(ingredient) {
+                    return ingredient.trim()
+                })
+    
+                var foundAllergens = ingredients.filter((ingredient) => {
+                    var subStringsIngredient = ingredient.split(' ').map(function(subStringIngredient) {
+                        return subStringIngredient.trim();
+                    })
+    
+                    return allergens.some(r=> subStringsIngredient.indexOf(r) >= 0)
+                })
+                
+                all_recipes.push(recipe)
+                if (foundAllergens.length == 0) {
+                    filtered_recipes.push(recipe)
+                }
+            })
+            
+            add_cache(query, all_recipes)
+            callback(filtered_recipes)
+          })
+    }
 }
 
 /**
@@ -57,4 +84,5 @@ function testReceivedFilteredRecipesMatchExpectedIgnoringWhiteSpace(filteredReci
 }
 
 // kicking off a single test
+fetchFilteredRecipes("candy", ["peanut"], testReceivedFilteredRecipesMatchExpectedIgnoringWhiteSpace)
 fetchFilteredRecipes("candy", ["peanut"], testReceivedFilteredRecipesMatchExpectedIgnoringWhiteSpace)
