@@ -18,7 +18,7 @@ function fetchFilteredRecipes(query, allergens) {
         // console.log("body: " + util.inspect(body, false, null, true))
 
         body.results.forEach((recipe, index, array) => {
-            console.log("recipe: " + util.inspect(recipe, false, null, true))
+            // console.log("recipe: " + util.inspect(recipe, false, null, true))
             
             var ingredients = recipe.ingredients.split(',')
             
@@ -34,12 +34,16 @@ function fetchFilteredRecipes(query, allergens) {
                 return allergens.some(r=> subStringsIngredient.indexOf(r) >= 0)
             })
 
-            console.log(foundAllergens)
+            if (foundAllergens.length == 0) {
+                filtered_recipes.push(recipe)
+            }
 
             // recipe.ingredients.forEach(function(ingredient) {
             //     console.log(ingredient);
             // });
         })
+
+        console.log(filtered_recipes)
       })
 }
 
