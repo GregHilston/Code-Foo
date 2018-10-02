@@ -1,0 +1,26 @@
+[
+    {
+        "color": "white",
+        "must_not": ["white", "black"]
+    },
+    {
+        "color": "red",
+        "must": ["green"]
+    },
+    {
+        "color": "black",
+        "must_not": ["white", "green", "orange"]
+    },
+    {
+        "color": "orange",
+        "must": ["red", "black"]
+    },
+    {
+        "color": "green",
+        "must": ["orange", "white"]
+    },
+    {
+        "color": "purple",
+        "must_not": ["purple", "green", "orange", "white"]
+    }
+]
