@@ -47,9 +47,19 @@ function checkWireCutting(wires) {
     return true
 }
 
-if (process.argv.length != expectedNumberOfArguments) {
-    throw new Error("Unexpected number of input arguments. Expected " + expectedNumberOfArguments + " actual " + process.argv.length)
+function main() {
+    if (process.argv.length != expectedNumberOfArguments) {
+        throw new Error("Unexpected number of input arguments. Expected " + expectedNumberOfArguments + " actual " + process.argv.length)
+    }
+    
+    var wires = process.argv[2]
+    checkWireCutting(wires)
 }
 
-var wires = process.argv[2]
-checkWireCutting(wires)
+if (!module.parent) {
+    main()
+}
+
+module.exports = checkWireCutting/*{
+    checkWireCutting
+}*/
