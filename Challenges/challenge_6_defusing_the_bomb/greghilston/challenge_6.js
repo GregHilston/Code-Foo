@@ -14,6 +14,12 @@ const fsm = {"start": ["white, red, black, orange, green, purple"],
 const validWires = [Object.keys(fsm)] // for convenience
 const expectedNumberOfArguments = 3 // first for invoked node path, second for script path, third for multiline string 
 
+/**
+ * checkWireCutting - Checks wires from a bomb defusal proposal, determining if bomb exploded or was successfully defused
+ * 
+ * @param {array} wires - array of strings, describing colors of wires cut in order
+ * @return {boolean} Whether the bomb was successfully defused
+ */
 function checkWireCutting(wires) {
     var lastWire = null
 
@@ -30,7 +36,7 @@ function checkWireCutting(wires) {
         if(lastWire != null) {            
             if(fsm[lastWire].indexOf(wire) <= -1) {
                 console.log("Boom")
-                return null
+                return false 
             }
         }
 
@@ -38,6 +44,7 @@ function checkWireCutting(wires) {
     }
 
     console.log("Bomb defused")
+    return true
 }
 
 if (process.argv.length != expectedNumberOfArguments) {
