@@ -19,8 +19,15 @@ const expectedNumberOfArguments = 3 // first for invoked node path, second for s
  */
 function checkWireCutting(wires) {
     var lastWire = null
+    
+    if (typeof wires == 'undefined' && !wires) {
+        throw new TypeError("wires should not be undefined")
+    } 
 
     wires = wires.split('\n')
+
+    console.log(wires.length)
+
     for(var i = 0; i < wires.length; i++) {    
         var wire = wires[i].trim()
 
