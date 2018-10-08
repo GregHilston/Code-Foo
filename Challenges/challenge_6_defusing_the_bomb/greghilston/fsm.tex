@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage[pdf]{graphviz}
+
+\begin{document}
+	% Colors: white, red, black, orange, green, purple
+	% Digraph written in only valid steps
+	\digraph{fsm}{
+		rankdir=LR;loo
+		start -> white
+		start -> red
+		start -> black
+		start -> orange
+		start -> green
+		start -> purple
+		
+		white-> red
+		white -> orange
+		white -> green
+		white -> purple
+		
+		red -> green
+		
+		black -> red
+		black -> black
+		black -> purple
+		
+		orange -> red 
+		orange -> black
+		
+		green -> orange
+		green -> white
+		
+		purple -> red
+		purple -> red
+		purple -> black
+	}
+\end{document}
