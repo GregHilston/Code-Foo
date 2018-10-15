@@ -14,11 +14,11 @@ Feel free to hit me up with any comments or questions on here, Slack or Hipchat.
 
 # Challenge
 
-Your goal is to decode a time encoding that is used to explain when a business is open.
+Your goal is to parse a time encoding for business hours, and turn it into human-readable text.
 
 ## Input Description
 
-Each input will consist of multiple 11-character chunks, with no separators
+Your input will consist of multiple 11-character chunks, with no separators
 Format as follows:
 
     ABCCCCDDDDE
@@ -26,52 +26,55 @@ Format as follows:
     ABCCCCDDDDE
 
 Where:
-    A: day code (start)
-    B: day code (end)
-    C: time code (start)
-    D: time code (end)
-    E: time type code
+* `A`: day code (start)
+* `B`: day code (end)
+* `C`: time code (start)
+* `D`: time code (end)
+* `E`: time type code
 
-    day code:
-        M: Monday
-        T: Tuesday
-        W: Wednesday
-        R: Thursday
-        F: Friday
-        S: Saturday
-        N: Sunday
+* `day code`:g
+  * `M`: Monday
+  * `T`: Tuesday
+  * `W`: Wednesday
+  * `R`: Thursday
+  * `F`: Friday
+  * `S`: Saturday
+  * `N`: Sunday
 
-    time code:
-        ####: (military time format - hhmm, where 0000 is midnight)
+* `time code`:
+  * `####`: (military time format - `hhmm`, where `0000` is midnight)
 
-    time type codes:
-        H: Hours Open                   "open"
-
-    Please note: time range 00000000 means '24h'
+* `time type code`:
+  * `H`: Hours Open
 
 ## Output Description
 
-    Returns the open hours:
+Returns the open hours:
 
-        {
-            sunday: '24h',
-            monday: '8:00am - 12:30pm, 2:30pm - 6:00pm',
-            tuesday: '2:00pm - 5:00pm',
-            ...
-        }
+    {
+        sunday: '24h',
+        monday: '8:00am - 12:30pm, 2:30pm - 6:00pm',
+        tuesday: '2:00pm - 5:00pm',
+        ...
+    }
 
-    When a block spans multiple days, copy its time range to each day
-        For example:
-            "MF09001700H" would parse out to
-            {
-                sunday: '',
-                monday: '9:00am - 5:00pm',
-                tuesday: '9:00am - 5:00pm',
-                wednesday: '9:00am - 5:00pm',
-                thursday: '9:00am - 5:00pm',
-                friday: '9:00am - 5:00pm',
-                saturday: ''
-            }
+When a block spans multiple days, copy its time range to each day. For example:
+
+    MF09001700H
+
+would parse out to
+
+    {
+        sunday: '',
+        monday: '9:00am - 5:00pm',
+        tuesday: '9:00am - 5:00pm',
+        wednesday: '9:00am - 5:00pm',
+        thursday: '9:00am - 5:00pm',
+        friday: '9:00am - 5:00pm',
+        saturday: ''
+    }
+
+When a time range is encoded as `00000000`, then it means `24h`.
 
 # Acknowledgment
 
