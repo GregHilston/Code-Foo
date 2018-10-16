@@ -1,5 +1,6 @@
 var chai = require('chai')
 const convertRomanNumerals = require('../src/challenge_9')
+const expect = chai.expect
 
 describe('convertRomanNumerals', function() {
     it("'1 Through 100", function() {
@@ -13,7 +14,7 @@ describe('convertRomanNumerals', function() {
             const returnedValue = convertRomanNumerals(input) 
 
             // then
-            chai.expect(inputAndOutput[input]).to.equal(returnedValue)
+            expect(inputAndOutput[input]).to.equal(returnedValue)
         }
     })
 })
