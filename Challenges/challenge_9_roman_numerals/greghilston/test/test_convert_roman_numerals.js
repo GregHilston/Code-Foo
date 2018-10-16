@@ -13,7 +13,7 @@ describe('convertRomanNumerals', function() {
             const returnedValue = convertRomanNumerals(input) 
 
             // then
-            chai.assert.isTrue(inputAndOutput[input] === returnedValue, "should be correct value")
+            chai.expect(inputAndOutput[input]).to.equal(returnedValue)
         }
     })
 })
