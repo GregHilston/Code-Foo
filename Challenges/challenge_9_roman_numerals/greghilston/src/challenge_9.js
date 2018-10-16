@@ -3,48 +3,14 @@
 const expectedNumberOfArguments = 3 // first for invoked node path, second for script path, third for multiline string 
 let mappings = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
 
-function splitStringIntoEvenOddCharacters(toSplit) {
-    evenPositionedValues = [],
-    oddPositionValues = [];
-
-    for (var i = 0; i < toSplit.length; i++){
-        if((i+2)%2==0) {
-            evenPositionedValues.push(toSplit[i]);
-        }
-        else {
-            oddPositionValues.push(toSplit[i]);
-        }
-    }
-
-    return [evenPositionedValues, oddPositionValues]
-}
-
 function convertRomanNumerals(romanNumeralWritten){
-    // let splitValues = splitStringIntoEvenOddCharacters(romanNumeralWritten)
-    // let evenPositionedValues = splitValues[0]
-    // let oddPositionedValues = splitValues[1]
     let runningSum = 0
-    let firstValue
-    let secondValue
-    let isIncrementing
 
     for(var i = 0; i < romanNumeralWritten.length; i++) {
-        runningSum += mappings[romanNumeralWritten[i]]
-
-        if(i == 0) {
-            // first character storage, to determine direction
-            firstValue = mappings[romanNumeralWritten[i]]
-        } else if (i == 1) {
-            // second character storage, to determine direction
-            secondValue = mappings[romanNumeralWritten[i]]
-            
-            // determine direction
-            if(firstValue >= secondValue) {
-                isIncrementing = true
-            } else {
-                isIncrementing = false
-                runningSum -= (2 * firstValue)
-            }
+        if((i == romanNumeralWritten.length - 1) || (mappings[romanNumeralWritten[i]] >= mappings[romanNumeralWritten[i + 1]])) {
+            runningSum += mappings[romanNumeralWritten[i]]
+        } else {
+            runningSum -= mappings[romanNumeralWritten[i]]
         }
     }
 
