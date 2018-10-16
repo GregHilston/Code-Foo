@@ -10,7 +10,7 @@ describe('convertRomanNumerals', function() {
 
         // when
         for (let input in inputAndOutput) {
-            let returnedValue = convertRomanNumerals(input) 
+            const returnedValue = convertRomanNumerals(input) 
 
             // then
             chai.assert.isTrue(inputAndOutput[input] == returnedValue, "should be correct value")
