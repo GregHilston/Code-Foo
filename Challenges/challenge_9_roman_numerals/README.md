@@ -26,7 +26,7 @@ IV = 4
 
 V = 5
 
-IX =9
+IX = 9
 
 X = 10
 
@@ -57,7 +57,7 @@ Roman Numerals are not only read by adding the value of each character. They als
 
 You'll receive a single Roman Numeral value in String format, such as:
 
-"XII"
+`XII`
 
 ## Output Description
 
@@ -67,12 +67,12 @@ You're to return the Integer representation, such as:
 
 ## Examples
 
-convertRomanNumerals("XII) -> 12
+`convertRomanNumerals(XII)` -> `12`
 
 ## Optional Bonus 1
 
 Detect malformed Roman Numerals and return undefined or -1 when found.
 
-convertRomanNumerals("XLXX") -> undefined
+`convertRomanNumerals(XLXX)` -> `undefined` (or `-1`)
 
-"XLXX" is an example where every character is a _valid_ Roman Numeral character, but their ordering is incorrect.
+`XLXX` and `XXXL` are examples where every character is a _valid_ Roman Numeral character, but their ordering is incorrect. Their proper composition of this number would be `LX`, which is 60.
