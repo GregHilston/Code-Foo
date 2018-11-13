@@ -1,18 +1,10 @@
 #!/usr/bin/env python
-# coding: utf-8
-
-# In[10]:
-
 
 from PIL import Image, ImageDraw # allows us to draw
 import hashlib                   # allows us to compute the has of a given string
 import random                    # allows us to generate an offset
 import math                      # allows access to log function
 import matplotlib                # allows us to get all colors by string
-
-
-# In[11]:
-
 
 def actually_draw_square(canvas_mode, canvas_size_in_pixels, canvas_background_color_rgb, rectangle_position, rectangle_fill, rectangle_outline):
     """Draws a square based on input args.
@@ -36,10 +28,6 @@ def actually_draw_square(canvas_mode, canvas_size_in_pixels, canvas_background_c
 
     im.save("square.png")
 
-
-# In[12]:
-
-
 def position_from_seed(seed):
     """Pulls position from a seed which is a md5 in hex
     
@@ -60,10 +48,6 @@ def position_from_seed(seed):
     
     return square_position
 
-
-# In[13]:
-
-
 def color_from_seed(seed):
     """Pulls color from a seed which is a md5 in hex
     
@@ -81,10 +65,6 @@ def color_from_seed(seed):
     selection = ascii_character_sum % len(supported_colors)
     
     return supported_colors[selection]
-
-
-# In[14]:
-
 
 def square_parameters_from_seed(seed):
     """Pulls out square parameters from a seed which is a md5 in hex.
@@ -113,10 +93,6 @@ def square_parameters_from_seed(seed):
     
     return canvas_mode, canvas_size_in_pixels, canvas_background_color_rgb, rectangle_position, rectangle_fill, rectangle_outline
 
-
-# In[15]:
-
-
 def generate_seed(input):
     """Generates a seed from a given input string.
     
@@ -128,10 +104,6 @@ def generate_seed(input):
         
     """
     return hashlib.md5(input.encode("utf8")).hexdigest()
-
-
-# In[16]:
-
 
 def draw_square(input):    
     """Draws a square based on the input string.
@@ -149,21 +121,5 @@ def draw_square(input):
         
     actually_draw_square(canvas_mode, canvas_size_in_pixels, canvas_background_color_rgb, rectangle_position, rectangle_fill, rectangle_outline)
 
-
-# In[29]:
-
-
 draw_square("Grehg")
-
-
-# In[30]:
-
-
-get_ipython().run_cell_magic('html', '', '<img src="square.png">')
-
-
-# In[ ]:
-
-
-
-
+# see square.png
