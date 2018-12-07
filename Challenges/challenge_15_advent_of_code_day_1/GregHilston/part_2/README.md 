@@ -12,8 +12,10 @@ Memory: 16 GB 1600 MHz DDR3
 
 ### With `list`
 
-
+ 147.0985472202301 seconds
 
 ### With `dictionary`
 
 0.10479402542114258 seconds
+
+Which is 1403 times faster than the implementation with a `list`
