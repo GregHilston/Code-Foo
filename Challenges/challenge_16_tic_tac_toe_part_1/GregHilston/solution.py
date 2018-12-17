@@ -1,5 +1,4 @@
 import os.path
-from enum import Enum
 
 INPUT_FILE_PATH = "../input_1.txt"
 
