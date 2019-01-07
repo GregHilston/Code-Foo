@@ -62,7 +62,9 @@ So including 21, we can get two numbers which have a value of at least 15.
 This example highlights a corner case, described [here](https://www.reddit.com/r/dailyprogrammer/comments/76qk58/20171016_challenge_336_easy_cannibal_numbers/dohd68n/)
 
 > 9 1
+
 > 3 3 3 2 2 2 1 1 1
+
 > 4
 
 The answer is 4, but you might get 3 if you don't account for this corner case.
