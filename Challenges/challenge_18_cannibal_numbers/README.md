@@ -21,10 +21,12 @@ Your task is to determine the number of numbers which can have a value equal to 
 ## Example
 
 > 7 2
+
 > 21 9 5 8 10 1 3
+
 > 10 15
 
-*[The input above, as a file](https://github.com/GregHilston/Code-Foo/blob/master/Challenges/challenge_17_cannibal_numbers/input_1.txt)*
+*[The input above, as a file](https://github.com/GregHilston/Code-Foo/blob/master/Challenges/challenge_18_cannibal_numbers/input_1.txt)*
 
 Based on the above description, 7 is number of values that you will be given. 2 is the number of queries.
 
