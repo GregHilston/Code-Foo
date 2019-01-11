@@ -12,8 +12,8 @@ class CannibalNumbersSolverTests(unittest.TestCase):
 
         # Then
         self.assertEqual(2, len(return_counts))
-        self.assertEqual(10, return_counts[0])
-        self.assertEqual(15, return_counts[1])
+        self.assertEqual(4, return_counts[0])
+        self.assertEqual(2, return_counts[1])
 
 
 if __name__ == '__main__':
