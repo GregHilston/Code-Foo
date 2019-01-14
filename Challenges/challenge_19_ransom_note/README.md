@@ -18,7 +18,7 @@ Given an arbitrary ransom note string and another string containing letters from
 
 Each letter in the magazine string can only be used once in your ransom note. 
 
-You can either copy and paste the Strings into your function call, or look at the input files I'll provide. Do whatever is easier for you.
+You can either copy and paste the Strings into your function call, or look at the [input files](https://github.com/GregHilston/Code-Foo/tree/master/Challenges/challenge_19_ransom_note) I'll provide. Do whatever is easier for you.
 
 _Note:_
 
