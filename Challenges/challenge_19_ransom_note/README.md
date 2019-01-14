@@ -18,6 +18,8 @@ Given an arbitrary ransom note string and another string containing letters from
 
 Each letter in the magazine string can only be used once in your ransom note. 
 
+You can either copy and paste the Strings into your function call, or look at the input files I'll provide. Do whatever is easier for you.
+
 _Note:_
 
 _You may assume that both strings contain only lowercase letters. _
