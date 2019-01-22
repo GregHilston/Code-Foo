@@ -23,11 +23,9 @@ You can either copy and paste the Strings into your function call, or look at th
 _Note:_
 
 - _You cannot sell a stock before you buy one._
-- _You may assume that all numbers are `0` or greater. _
+- _You may assume that all numbers are `0` or greater._
 
 ## Examples
-
-The first String is the letters needed to construct the note, while the second String are the letters you have from cutting out of magazines. 
 
 ### Example 1
 
@@ -35,9 +33,7 @@ Input: [7,1,5,3,6,4]
 
 Output: 5
 
-Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-
-             Not 7-1 = 6, as selling price needs to be larger than buying price.
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5. Not 7-1 = 6, as selling price needs to be larger than buying price.
 
 ### Example 2
 
