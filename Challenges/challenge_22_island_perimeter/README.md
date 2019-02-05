@@ -20,7 +20,7 @@ Grid cells are connected horizontally/vertically (not diagonally). The grid is c
 
 The island doesn't have "lakes" (water inside that isn't connected to the water around the island). One cell is a square with side length 1. The grid is rectangular, width and height don't exceed 100. Determine the perimeter of the island.
 
-You can either copy and paste the Strings into your function call, or look at the input files in the [repo](https://github.com/GregHilston/Code-Foo/tree/master/Challenges/challenge_21_word_pattern).
+You can either copy and paste the Strings into your function call, or look at the input files in the [repo](https://github.com/GregHilston/Code-Foo/tree/master/Challenges/challenge_22_word_pattern/input.json).
 
 ## Example 1
 
