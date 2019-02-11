@@ -48,7 +48,7 @@ You need to output 1.
 ```
 {
   "children": [1, 2]],
-  "cookies": [1 ,2, 3]
+  "cookies": [1 ,2, 3],
   "output": 2
 }
 ```
