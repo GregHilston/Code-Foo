@@ -23,6 +23,8 @@ The total number of iterations is the additive persistence of N.
 
 Your challenge today is to implement a function that calculates the additive persistence of a number.
 
+Look at the input on [Github here](https://github.com/GregHilston/Code-Foo/tree/master/Challenges/challenge_24_additive_persistence).
+
 ## Example 1
 
 input = 13
