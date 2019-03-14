@@ -1,25 +1,17 @@
-class HashTable():
+from typing import Hashable, Any
+
+class HashTable:
     """A horribly simple HashTable implementation.
-
-    """
-    def get(self, key): 
-        """Fetches the value of the given previous set key.
-        
-        Args:
-            key (int or str or float): The key of the value of interest.
-
-        Returns:
-            any or None: The value that belongs to this key or None if not found.
-
-        """
-        raise NotImplementedError
     
-    def put(self, key, value):
-        """Stores the given value, relating it to the given key.
-        
-        Args:
-            key (int or str or float): The key of the value of interest.
-            value (any): The value to store for this key.
+    """
+    def __getitem__(self, key: Hashable) -> Any:
+        """Some text about the function
 
         """
-        raise NotImplementedError
+        raise NotImplementedError()
+
+    def __setitem__(self, key: Hashable, value: Any):
+        """Some text about the function
+
+        """
+        raise NotImplementedError()

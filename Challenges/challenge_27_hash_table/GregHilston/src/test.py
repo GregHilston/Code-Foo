@@ -10,7 +10,7 @@ class HashTableTests(unittest.TestCase):
         key = 1
 
         # When
-        returned_value = self.sut.get(key)
+        returned_value = self.sut[key]
 
         # Then
         self.assertIsNone(returned_value, """The returned_value should be None, 
@@ -22,7 +22,7 @@ class HashTableTests(unittest.TestCase):
         value = "potato"
 
         # When
-        returned_put_status = self.sut.put(key, value)
+        returned_put_status = self.sut[key] = value
 
         # Then
         self.assertIsNone(returned_put_status, """The returned_put_status should 
@@ -37,8 +37,8 @@ class HashTableTests(unittest.TestCase):
         value_two = "fish"
 
         # When
-        returned_put_status_one = self.sut.put(key_one, value_one)
-        returned_put_status_two = self.sut.put(key_two, value_two)
+        returned_put_status_one = self.sut[key_one] = value_one
+        returned_put_status_two = self.sut[key_two] = value_two
 
         # Then
         self.assertIsNone(returned_put_status_one, """The returned_put_status_one 
@@ -55,10 +55,10 @@ class HashTableTests(unittest.TestCase):
         value_two = "fish"
 
         # When
-        returned_put_status_one = self.sut.put(key_one, value_one)
-        returned_put_status_two = self.sut.put(key_two, value_two)
+        returned_put_status_one = self.sut[key_one] = value_one
+        returned_put_status_two = self.sut[key_two] = value_two
 
-        returned_value_three = self.sut.get(key_two)
+        returned_value_three = self.sut[key_two]
 
         # Then
         self.assertIsNone(returned_put_status_one, """The returned_put_status_one 
