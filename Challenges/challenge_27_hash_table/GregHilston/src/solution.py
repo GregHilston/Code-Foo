@@ -22,27 +22,16 @@ class HashTable:
         """
         hash = self.compute_hash(key_to_look_up)
 
-        print("__getitem__")
-        print(f"key_to_look_up {key_to_look_up}")
-        print(f"hash {hash}")
-
         if self.storage[hash] != None:
             for key, value in self.storage[hash]:
-                print(f"\t key {key} value {value}")
                 if key == key_to_look_up:
                     return value
-        else:
-            print(f"\t hash {hash} not in self.storage {self.storage}")
 
     def __setitem__(self, key_to_store: int, value: Any):
         """Some text about the function
 
         """
         hash = self.compute_hash(key_to_store)
-
-        print("__setitem__")
-        print(f"key_to_store {key_to_store}")
-        print(f"hash {hash}")
 
         # First time we're seeing this
         if hash not in self.storage:
