@@ -43,6 +43,7 @@ class HashTableTests(unittest.TestCase):
         # Just checking if we crash, so we don't have to assert anything ourselves
 
     def test_hashtable_returns_value_when_getting_something_that_collides(self):
+        print("collision test!")
         # Given
         key_one = 1
         value_one = "potato"
