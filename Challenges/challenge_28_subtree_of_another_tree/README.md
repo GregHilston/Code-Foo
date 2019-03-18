@@ -56,8 +56,6 @@ Given tree t:
 
 Return `false`.
 
-Return `true`, because t has the same structure and node values with a subtree of s.
-
 ## Acknowledgement
 
 [This challenge was taken from Leet Code](https://leetcode.com/problems/subtree-of-another-tree/). There are awesome submissions here, so check your work afterwords to learn something new!
