@@ -1,16 +1,9 @@
-def multiply(multiplicand: int, multiplier: int, sum: int):
-  print(f"\tmultiply multiplicand {multiplicand} multiplier {multiplier} sum {sum}")
+class RecursiveMultiply:
+    def multiply(self, multiplicand: int, multiplier: int, running_sum: int):
+        if multiplier == 0:
+            return running_sum
 
-  if multiplier == 0:
-    return sum
+        return self.multiply(multiplicand, multiplier - 1, running_sum + multiplicand)
 
-  new_sum = sum + multiplicand
-  new_multiplier = multiplier - 1
-
-  return multiply(multiplicand, new_multiplier, new_sum)
-
-def recursive_multiply(multiplicand: int, multiplier: int):
-  print(f"recursive_multiply multiplicand {multiplicand} multiplier {multiplier}")
-  print(multiply(multiplicand, multiplier, 0))
-
-recursive_multiply(5, 5)
+    def recursive_multiply(self, multiplicand: int, multiplier: int):
+        return self.multiply(multiplicand, multiplier, 0)
