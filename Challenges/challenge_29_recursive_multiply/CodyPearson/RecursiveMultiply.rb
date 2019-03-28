@@ -14,8 +14,6 @@ def recursive_multiply(firstTerm, secondTerm)
 
     if secondTerm > 0
         return firstTerm + recursive_multiply(firstTerm, (secondTerm - 1))
-    elsif secondTerm == 0
-        return 0
     elsif secondTerm < 0
         return -(recursive_multiply(firstTerm, secondTerm.abs))
     end
