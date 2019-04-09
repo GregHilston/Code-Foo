@@ -34,7 +34,7 @@ public int maxFlow(String filePath) {
 
 Given: The following DAG 
 
-[visually](https://github.com/GregHilston/Code-Foo/blob/master/Challenges/challenge_31_max_flow/dag-example-1.PNG)
+[visually](https://raw.githubusercontent.com/GregHilston/Code-Foo/master/Challenges/challenge_31_max_flow/dag-example-1.PNG)
 
 in JSON
 
