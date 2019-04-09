@@ -14,7 +14,7 @@ Feel free to hit me up with any comments or questions on here, Slack or Hipchat.
 
 # Challenge
 
-Write a function to find the maximum flow from the source node to the destination node in a directed acyclic graph (DAG). I like to think of this problem as water flowing from source and destination. When looking at the flow, imagine that water is limited to the smallest pipe in its journey. The graph will be represented by a JSON file. Feel free to parse it and treat it however you'd like. 
+Write a function to find the maximum flow from the source node to the destination node in a directed graph. I like to think of this problem as water flowing from source and destination. When looking at the flow, imagine that water is limited to the smallest pipe in its journey. The graph will be represented by a JSON file. Feel free to parse it and treat it however you'd like. 
 
 Just to be clear, imagine that the source node has an infinite amount of water potential.
 
@@ -22,9 +22,9 @@ A sample function signature:
 
 ```
 /**
-* This function calculates the maximum flow in a DAG, described by the given JSON file path.
-* @param filePath File containing the DAG.
-* @return int Returns the max flow of the DAG.
+* This function calculates the maximum flow in a directed graph, described by the given JSON file path.
+* @param filePath File containing the directed graph.
+* @return int Returns the max flow of the directed graph.
 */
 public int maxFlow(String filePath) {
 }
@@ -32,9 +32,9 @@ public int maxFlow(String filePath) {
 
 ## Example 1
 
-Given: The following DAG 
+Given: The following directed graph 
 
-[visually](https://raw.githubusercontent.com/GregHilston/Code-Foo/master/Challenges/challenge_31_max_flow/dag-example-1.PNG)
+[visually](https://raw.githubusercontent.com/GregHilston/Code-Foo/master/Challenges/challenge_31_max_flow/directed-graph-example-1.PNG)
 
 in JSON
 
@@ -102,7 +102,7 @@ in graphivz
 The expected output is
 
 ```
-    int maxFlow = maxFlow("dag-example-1.json);
+    int maxFlow = maxFlow("directed-graph-example-1.json);
 
     System.out.println(commonAncestor); // 23
 ```
