@@ -113,6 +113,6 @@ Feel free to read [this](https://www.geeksforgeeks.org/ford-fulkerson-algorithm-
 
 ## Acknowledgement
 
-Grehg made up this challenge. Please reach out to him with any feedback, comments or questions.
+Grehg write this challenge. Please reach out to him with any feedback, comments or questions.
 
 Suggested by Ben Michaud! Thanks!
