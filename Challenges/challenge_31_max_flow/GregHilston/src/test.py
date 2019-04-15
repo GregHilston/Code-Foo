@@ -13,20 +13,20 @@ class MaxFlowTests(unittest.TestCase):
         sink = GraphNode("sink")
 
         # source edges
-        source.children.append((one, 16))
-        source.children.append((two, 13))
+        source.add_edge(one, 16)
+        source.add_edge(two, 13)
 
-        one.children.append((two, 10))
-        one.children.append((three, 12))
+        one.add_edge(two, 10)
+        one.add_edge(three, 12)
 
-        two.children.append((one, 4))
-        two.children.append((four, 14))
+        two.add_edge(one, 4)
+        two.add_edge(four, 14)
 
-        three.children.append((two, 9))
-        three.children.append((sink, 20))
+        three.add_edge(two, 9)
+        three.add_edge(sink, 20)
 
-        four.children.append((three, 7))
-        four.children.append((sink, 4))
+        four.add_edge(three, 7)
+        four.add_edge(sink, 4)
 
         self.sut = MaxFlow(source)
 
