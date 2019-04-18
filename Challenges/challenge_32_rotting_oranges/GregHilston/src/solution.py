@@ -27,8 +27,6 @@ class RottingOranges:
                 if row_index not in ds_by_location:
                     ds_by_location[row_index] = {}
                 ds_by_location[row_index][column_index] = board[row_index][column_index]
-                # print(f"Wrote {board[row_index][column_index]} at row_index {row_index} and column_index {column_index}")
-                # print(f"ds_by_location {ds_by_location}")
 
         return (ds_by_type, ds_by_location)
 
@@ -37,11 +35,6 @@ class RottingOranges:
         If so, returns True else False.
 
         """
-
-        # print("no_fresh_oranges")
-        # print(f"ds_by_type {ds_by_type}")
-        # print(f"len(ds_by_type[self.FRESH]) {len(ds_by_type[self.FRESH])}")
-
         if len(ds_by_type[self.FRESH]) == 0:
             return True
         else:
@@ -51,7 +44,6 @@ class RottingOranges:
         """Calculates all potential neighbors for a given location.
 
         """
-
         neighbors = []
 
         neighbors.append((location[0], location[1]-1)) # North
@@ -66,27 +58,16 @@ class RottingOranges:
         If so, returns True else False.
 
         """
-
-        # print("stray_fresh_orange")
-        # print(f"ds_by_type {ds_by_type}")
-        # print(f"ds_by_location {ds_by_location}")
-
         for fresh_orange in ds_by_type[self.FRESH]:
             found_valid_neighbor = False
-            # print(f"\t evaluating fresh_orange {fresh_orange}")
             potential_neighbors = self.calculate_neighbors(fresh_orange)
-            # print(f"\t\t potential_neighbors {potential_neighbors}")
 
             for potential_neighbor in potential_neighbors:
-                # print(f"\t\t evaluating neighbor at {(potential_neighbor[0], potential_neighbor[1])}")
                 try:
-                    # print(f"\t\t\t has a value of {ds_by_location[potential_neighbor[0]][potential_neighbor[1]]}")
                     if ds_by_location[potential_neighbor[0]][potential_neighbor[1]] != self.EMPTY:
                         found_valid_neighbor = True
-                        # print(f"\t\t\t found non EMPTY neighbor at ({potential_neighbor[0], potential_neighbor[1]})")
                         break # We had a non EMPTY neighbor
                 except:
-                    # print(f"\t\t\t out of bounds")
                     continue # We went out of bounds, that's fine
             if not found_valid_neighbor:
                 return True # we failed to find a valid neighbor
@@ -119,7 +100,6 @@ class RottingOranges:
                 for potential_neighbor in potential_neighbors:
                     try:
                         if ds_by_location[potential_neighbor[0]][potential_neighbor[1]] == self.ROTTEN:
-                            # print(f"orange at ({row_index}, {column_index}) is now ROTTEN due to ROTTEN orange at ({potential_neighbor[0]}{potential_neighbor[1]})")
                             # update first data structure
                             # remove old record
                             copy_of_ds_by_type[ds_by_location[row_index][column_index]].remove((row_index, column_index))
@@ -145,21 +125,15 @@ class RottingOranges:
 
         if self.no_fresh_oranges(ds_by_type):
             NO_FRESH_ORANGES_RETURN_VALUE = 0
-            # print("no_fresh_oranges")
             return NO_FRESH_ORANGES_RETURN_VALUE
 
         if self.stray_fresh_orange(ds_by_type, ds_by_location):
             STRAY_ORANGE_RETURN_VALUE = -1
-            # print("stray_fresh_orange")
             return STRAY_ORANGE_RETURN_VALUE
 
         while True:
             ds_by_type, ds_by_location = self.advance_time_by_minute(ds_by_type, ds_by_location)
             minutes += 1
-
-            # print(f"advanced a minute, now at {minutes} minutes")
-            # print(f"\tds_by_type {ds_by_type}")
-            # print(f"\tds_by_location {ds_by_location}")
 
             if self.all_rotten(ds_by_type):
                 return minutes
