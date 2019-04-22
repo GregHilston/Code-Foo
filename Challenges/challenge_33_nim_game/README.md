@@ -54,9 +54,9 @@ Explanation: If there are 4 stones in the heap, then you will never win the game
 
 Input: 5
 
-Output: false
+Output: true
 
-Explanation: If there are 5 stones in the heap, then you will never win the game. No matter 1, 2, or 3 stones you remove, the last 2 stones will always be removed by your friend.
+Explanation: If there are 5 stones in the heap, you remove 1 stone and no matter 1, 2, or 3 stones, you'll be able to remove the remaining.
 
 ## Example 6:
 
@@ -64,7 +64,7 @@ Input: 6
 
 Output: false
 
-Explanation: If there are 6 stones in the heap, then you will never win the game. No matter 1, 2, or 3 stones you remove, the last 3 stones will always be removed by your friend.
+Explanation: If there are 5 stones in the heap, you remove 2 stones and no matter 1, 2, or 3 stones, you'll be able to remove the remaining.
 
 ## Example 7:
 
