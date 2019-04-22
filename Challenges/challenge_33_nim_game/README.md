@@ -20,13 +20,59 @@ Both of you are very clever and have optimal strategies for the game. Write a fu
 
 ## Example 1:
 
+Input: 1
+
+Output: true
+
+Explanation: If there is 1 stone in the heap, then you will win the game. Remove 1 stone and you've won.
+
+## Example 2:
+
+Input: 2
+
+Output: true
+
+Explanation: If there is 2 stone in the heap, then you will win the game. Remove 2 stone and you've won.
+
+## Example 3:
+
+Input: 3
+
+Output: true
+
+Explanation: If there is 3 stone in the heap, then you will win the game. Remove 3 stone and you've won.
+
+## Example 4:
+
 Input: 4
 
 Output: false
 
-Explanation: If there are 4 stones in the heap, then you will never win the game;
-             No matter 1, 2, or 3 stones you remove, the last stone will always be
-             removed by your friend.
+Explanation: If there are 4 stones in the heap, then you will never win the game. No matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.
+
+## Example 5:
+
+Input: 5
+
+Output: false
+
+Explanation: If there are 5 stones in the heap, then you will never win the game. No matter 1, 2, or 3 stones you remove, the last 2 stones will always be removed by your friend.
+
+## Example 6:
+
+Input: 6
+
+Output: false
+
+Explanation: If there are 6 stones in the heap, then you will never win the game. No matter 1, 2, or 3 stones you remove, the last 3 stones will always be removed by your friend.
+
+## Example 7:
+
+Input: 7
+
+Output: true
+
+Explanation: If there are 7 stones in the heap, then you will never win the game. This was difficult for me to do, but ended up being simple. First turn you remove 3 stones, leaving the opponent with 4 stones. On their turn, no matter 1, 2, or 3 stones they remove, you'll be left with the ability to take the final stone.
 
 ## Acknowledgement
 
