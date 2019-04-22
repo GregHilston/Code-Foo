@@ -62,7 +62,7 @@ Explanation: If there are 5 stones in the heap, you remove 1 stone and no matter
 
 Input: 6
 
-Output: false
+Output: true
 
 Explanation: If there are 5 stones in the heap, you remove 2 stones and no matter 1, 2, or 3 stones, you'll be able to remove the remaining.
 
