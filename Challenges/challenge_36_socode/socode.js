@@ -18,26 +18,26 @@ function soCode() {
  */
 function codeFoo() {
   t3h2mas();
+
   console.log("Goodbye Cruel World!");
 }
 
 // BEGIN section to add your functions
 //find the beer
-const TS000 = () => {
-    const url = "https://api.openbrewerydb.org/breweries/search?query=fort-collins";
-    fetch(url) //find some beer!
-      .then(response => response.json())
-      .then(json => console.log(json))
-      .catch(function(error) {
-        console.log(error);
-      });
-    }
-    
-    TS000()
+function TS000(query, amount) {
+  const url = `https://api.openbrewerydb.org/breweries/search?query=${query}&per_page=${amount}`;
+  fetch(url) //find some beer!
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(function(error) {
+      console.log(error);
+    });
+}
 
 // END section to add your functions
 
 // BEGIN section to call your functions
 let seed = soCode();
+TS000("fort-collins", seed);
 // END section to call your functions
 codeFoo();
