@@ -14,17 +14,24 @@ Feel free to hit me up with any comments or questions on here, Slack or Hipchat.
 
 # Challenge
 
+Welcome to soCode, the social coding experiment.
+
 This "challenge" is a little different. There isn't going to be an end goal, rather you're going to be asked to be creative.
 
 I'll have a single file in the folder called `socode.js`
 
+**Four steps, fork -> edit -> open a pull -> merge**
+
 ## Loose Rules
 
 - Add a function with your github name as its name.
+  - if you want to add more functions, do so, just append some change to your function name (ex: function 0 = GregHilston, function 1 = GregHilston1)
 - Your function can do anything and everything, as long as it finishes in a reasonable amount of time. No infinite loops, please.
 - Once your function is written, you can call it from anywhere else in the already existing execution chain.
 - Never entirely delete anyone else's function. Edit it if needed.
 - codeFoo() should be the last executing function
+
+Let's see if we can make something meaningful out of this.
 
 ## Acknowledgement
 
