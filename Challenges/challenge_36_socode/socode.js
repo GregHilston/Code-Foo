@@ -33,11 +33,15 @@ function TS000(query, amount) {
       console.log(error);
     });
 }
+function Get_Numbys() {
+  console.log(Math.random() * 1000)
 
+}
 // END section to add your functions
 
 // BEGIN section to call your functions
 let seed = soCode();
 TS000("fort-collins", seed);
 // END section to call your functions
+Get_Numbys();
 codeFoo();
