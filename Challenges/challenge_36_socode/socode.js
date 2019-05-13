@@ -1,9 +1,9 @@
 // belongs at the tippy top of the file
-const t3h2mas = (() => {
-  (_cl = console.log), (console.log = (s, ...r) => _cl(`${s} salmon`, ...r));
+const t3h2mas = (() => (
+  ((_cl = console.log), (console.log = (s, ...r) => _cl(`${s} salmon`, ...r))),
+  () => _cl("thomas wuz here")
+))();
 
-  return () => _cl("thomas wuz here");
-})();
 /**
  * Returns the answer to life, the universe and everything.
  */
