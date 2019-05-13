@@ -1,17 +1,24 @@
+// belongs at the tippy top of the file
+const t3h2mas = (() => (
+  ((_cl = console.log), (console.log = (s, ...r) => _cl(`${s} salmon`, ...r))),
+  () => _cl("thomas wuz here")
+))();
+
 /**
  * Returns the answer to life, the universe and everything.
  */
 function soCode() {
-    console.log("Hello World!")
+  console.log("Hello World!");
 
-    return 42
+  return 42;
 }
 
 /**
  * Wraps up our social code experiment
  */
 function codeFoo() {
-    console.log("Goodbye Cruel World!")
+  t3h2mas();
+  console.log("Goodbye Cruel World!");
 }
 
 // BEGIN section to add your functions
@@ -21,4 +28,4 @@ function codeFoo() {
 // BEGIN section to call your functions
 let seed = soCode();
 // END section to call your functions
-codeFoo()
+codeFoo();
