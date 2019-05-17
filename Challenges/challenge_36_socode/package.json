@@ -1,0 +1,15 @@
+{
+  "name": "challenge_36_socode",
+  "version": "1.0.0",
+  "description": "_I suggest sorting this thread by *New* to see the most recent submissions_",
+  "main": "socode.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
