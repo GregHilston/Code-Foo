@@ -1,3 +1,9 @@
+// optionally define dependencies if running in node
+if (typeof window === "undefined") {
+  // use var because it is not block scoped
+  var fetch = require("node-fetch");
+}
+
 // belongs at the tippy top of the file
 const t3h2mas = (() => (
   ((_cl = console.log), (console.log = (s, ...r) => _cl(`${s} salmon`, ...r))),
