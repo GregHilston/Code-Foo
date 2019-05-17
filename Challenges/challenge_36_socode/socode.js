@@ -2,6 +2,8 @@
 if (typeof window === "undefined") {
   // use var because it is not block scoped
   var fetch = require("node-fetch");
+  var fs = require('fs');
+  var is_node = true;
 }
 
 // belongs at the tippy top of the file
@@ -34,7 +36,7 @@ function TS000(query, amount) {
   const url = `https://api.openbrewerydb.org/breweries/search?query=${query}&per_page=${amount}`;
   fetch(url) //find some beer!
     .then(response => response.json())
-    .then(json => console.log(json))
+    .then(json => console.table(json))
     .catch(function(error) {
       console.log(error);
     });
@@ -42,6 +44,30 @@ function TS000(query, amount) {
 function Get_Numbys() {
   console.log(Math.random() * 1000)
 
+}
+
+function adamwhitlock1() {
+  if ( is_node ) {
+    const file_data = fs.readFileSync('./socode.js');
+    const file_line_number = file_data.toString().split('\n').length;
+    console.log(`
+    There are ${file_line_number} lines of code in this awesome file
+
+        /(
+      _/./
+   ,-'    '-:_,-'(
+  > O )<)    _  (
+   '-._ _ .:' '-.(
+       (/
+
+    I'm not sure if this in meaningful,
+    but the best fish in the world is the`);
+  } else {
+    console.log(`
+    Looks like you are in the browser.
+    Give this file a try in Node if you want to be one of the cool kids.
+    `);
+  }
 }
 
 /**
@@ -56,7 +82,8 @@ function GregHilston() {
 // BEGIN section to call your functions
 let seed = soCode();
 TS000("fort-collins", seed);
-// END section to call your functions
+adamwhitlock1();
 Get_Numbys();
-GregHilston()
+GregHilston();
+// END section to call your functions
 codeFoo();
