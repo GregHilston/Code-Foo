@@ -14,5 +14,8 @@ class BulbSwitcherTests(unittest.TestCase):
     def test3(self):
         self.assertEqual(1, self.sut.solve(2))
 
+    def test4(self):
+         self.assertEqual(1, self.sut.solve(1))
+
 if __name__ == '__main__':
     unittest.main()
