@@ -36,7 +36,7 @@ Furthermore, you may assume that the original data does not contain any digits a
 
 ### Input
 
-"accaccacc"
+"3[a2[c]]"
 
 ### Output
 
