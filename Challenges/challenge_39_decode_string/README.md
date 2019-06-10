@@ -40,7 +40,7 @@ Furthermore, you may assume that the original data does not contain any digits a
 
 ### Output
 
-"aaabcbc"
+"accaccacc"
 
 ## Example 3
 
