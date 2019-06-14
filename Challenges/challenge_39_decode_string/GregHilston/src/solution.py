@@ -48,4 +48,5 @@ class DecodeString:
 
             output += (int(count) * sequence) # + leftovers
 
-        return output[::-1]
+        print(f"\treturning {S_REVERSED[::-1]}")
+        return S_REVERSED[::-1]
