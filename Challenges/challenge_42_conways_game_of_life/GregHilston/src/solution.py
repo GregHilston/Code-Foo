@@ -36,39 +36,30 @@ class ConwaysGameOfLife():
     def west(self, row: int, col: int):
         return (row-1, col)
 
+    def north_east(self, row: int, col: int):
+        return (row+1, col-1)
+
+    def south_east(self, row: int, col: int):
+        return (row+1, col+1)
+
+    def south_west(self, row: int, col: int):
+        return (row-1, col+1)
+
+    def north_west(self, row: int, col: int):
+        return (row-1, col-1)
+
     def number_of_live_neighbors(self, board, row, col):
         live_neighbor_count = 0
 
-        north_neighbor = self.north(row, col)
-        if north_neighbor[0] >= 0 and north_neighbor[0] < self.rows and north_neighbor[1] >= 0 and north_neighbor[1] < self.cols:
-            try:
-                if board[north_neighbor[0]][north_neighbor[1]] == Cell.ALIVE:
-                    live_neighbor_count += 1
-            except IndexError:
-                pass
+        neighbors_to_check = [self.north, self.east, self.south, self.west, self.north_east, self.south_east, self.south_west, self.north_west]
 
-        if north_neighbor[0] >= 0 and north_neighbor[0] < self.rows and north_neighbor[1] >= 0 and north_neighbor[1] < self.cols:
-            try:
-                east_neighbor = self.east(row, col)
-                if board[east_neighbor[0]][east_neighbor[1]] == Cell.ALIVE:
-                    live_neighbor_count += 1
-            except IndexError:
-                pass
-
-        if north_neighbor[0] >= 0 and north_neighbor[0] < self.rows and north_neighbor[1] >= 0 and north_neighbor[1] < self.cols:
-            try:
-                south_neighbor = self.south(row, col)
-                if board[south_neighbor[0]][south_neighbor[1]] == Cell.ALIVE:
-                    live_neighbor_count += 1
-            except IndexError:
-                pass
-
-        if north_neighbor[0] >= 0 and north_neighbor[0] < self.rows and north_neighbor[1] >= 0 and north_neighbor[1] < self.cols:
-            try:
-                west_neighbor = self.west(row, col)
-                if board[west_neighbor[0]][west_neighbor[1]] == Cell.ALIVE:
-                    live_neighbor_count += 1
-            except IndexError:
+        for neighbor_to_check in neighbors_to_check:
+            neighbor = neighbor_to_check(row, col)
+            if neighbor[0] >= 0 and neighbor[0] < self.rows and neighbor[1] >= 0 and neighbor[1] < self.cols:
+                try:
+                    if board[neighbor[0]][neighbor[1]] == Cell.ALIVE:
+                        live_neighbor_count += 1
+                except IndexError:
                     pass
 
         return live_neighbor_count
