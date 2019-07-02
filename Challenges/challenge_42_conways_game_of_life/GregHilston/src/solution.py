@@ -40,32 +40,36 @@ class ConwaysGameOfLife():
         live_neighbor_count = 0
 
         north_neighbor = self.north(row, col)
-        try:
-            if board[north_neighbor[0]][north_neighbor[1]] == Cell.ALIVE:
-                live_neighbor_count += 1
-        except IndexError:
-            pass
-
-        try:
-            east_neighbor = self.east(row, col)
-            if board[east_neighbor[0]][east_neighbor[1]] == Cell.ALIVE:
-                live_neighbor_count += 1
-        except IndexError:
-            pass
-
-        try:
-            south_neighbor = self.south(row, col)
-            if board[south_neighbor[0]][south_neighbor[1]] == Cell.ALIVE:
-                live_neighbor_count += 1
-        except IndexError:
-            pass
-
-        try:
-            west_neighbor = self.west(row, col)
-            if board[west_neighbor[0]][west_neighbor[1]] == Cell.ALIVE:
-                live_neighbor_count += 1
-        except IndexError:
+        if north_neighbor[0] >= 0 and north_neighbor[0] < self.rows and north_neighbor[1] >= 0 and north_neighbor[1] < self.cols:
+            try:
+                if board[north_neighbor[0]][north_neighbor[1]] == Cell.ALIVE:
+                    live_neighbor_count += 1
+            except IndexError:
                 pass
+
+        if north_neighbor[0] >= 0 and north_neighbor[0] < self.rows and north_neighbor[1] >= 0 and north_neighbor[1] < self.cols:
+            try:
+                east_neighbor = self.east(row, col)
+                if board[east_neighbor[0]][east_neighbor[1]] == Cell.ALIVE:
+                    live_neighbor_count += 1
+            except IndexError:
+                pass
+
+        if north_neighbor[0] >= 0 and north_neighbor[0] < self.rows and north_neighbor[1] >= 0 and north_neighbor[1] < self.cols:
+            try:
+                south_neighbor = self.south(row, col)
+                if board[south_neighbor[0]][south_neighbor[1]] == Cell.ALIVE:
+                    live_neighbor_count += 1
+            except IndexError:
+                pass
+
+        if north_neighbor[0] >= 0 and north_neighbor[0] < self.rows and north_neighbor[1] >= 0 and north_neighbor[1] < self.cols:
+            try:
+                west_neighbor = self.west(row, col)
+                if board[west_neighbor[0]][west_neighbor[1]] == Cell.ALIVE:
+                    live_neighbor_count += 1
+            except IndexError:
+                    pass
 
         return live_neighbor_count
 
@@ -102,7 +106,6 @@ class ConwaysGameOfLife():
             return False
 
     def update_board(self):
-        print(f"start {self.board}")
         copy_board = copy.deepcopy(self.board)
 
         for row in range(self.rows):
@@ -119,8 +122,6 @@ class ConwaysGameOfLife():
                         copy_board[row][col] = Cell.ALIVE
 
         self.board = copy_board
-        print(f"end {self.board}")
-
 
 class Gui():
     def __init__(self, conways_game_of_life: ConwaysGameOfLife):
@@ -139,7 +140,7 @@ class Gui():
                         justification='right',
                         key=(row,col),
                         text=" ",
-                        background_color= "Black" if self.conways_game_of_life.board[row][col] == Cell.DEAD else "White"
+                        background_color= "White" if self.conways_game_of_life.board[row][col] == Cell.DEAD else "Black"
                     )
                 )
             ui_board.append([sg.T('{}'.format(row), size=(4,1), justification='right')] + columns)
@@ -158,9 +159,9 @@ class Gui():
 
 
             #event, values = window.Read()
-            event, values = window.Read(timeout = 100)
+            event, values = window.Read(timeout = 1000)
 
-            window.Close()
+            # window.Close()
 
             self.conways_game_of_life.update_board()
             time.sleep(1)
