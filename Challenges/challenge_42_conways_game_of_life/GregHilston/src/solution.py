@@ -4,6 +4,7 @@ if sys.version_info[0] >= 3:
 else:
     import PySimpleGUI27 as sg
 from enum import Enum
+import random
 
 class Cell(Enum):
     DEAD = 0
@@ -18,19 +19,21 @@ class Table():
         for i in range(rows):
             self.board.append([])
             for j in range(cols):
-                self.board[i].append(Cell.DEAD)
+                coin_flip = random.randint(0, 1)
+                print(coin_flip)
+                self.board[i].append(Cell.DEAD if coin_flip % 2 == 0 else Cell.ALIVE)
 
 class Simulator():
     def __init__(self, table: Table):
         self.table = table
 
     def domain_model_to_ui(self):
-        ui = [[]]
+        ui_board = [[]]
 
         for row in range(self.table.rows):
-            column = []
+            columns = []
             for col in range(self.table.cols):
-                column.append(
+                columns.append(
                     sg.Text(
                         size=(10, 1),
                         pad=(1, 1),
@@ -40,11 +43,8 @@ class Simulator():
                         background_color= "Black" if self.table.board[row][col] == Cell.DEAD else "White"
                     )
                 )
-            inputs = [sg.T('{}'.format(row), size=(4,1), justification='right')] + column
-            ui.append(inputs)
-        print(str(type(ui)))
-        print(ui)
-        return ui
+            ui_board.append([sg.T('{}'.format(row), size=(4,1), justification='right')] + columns)
+        return ui_board
 
     def start(self):
         sg.SetOptions(element_padding=(0,0))
