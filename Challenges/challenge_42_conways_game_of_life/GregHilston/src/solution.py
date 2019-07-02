@@ -67,7 +67,7 @@ class ConwaysGameOfLife():
     def is_dead_underpopulation(self, board, row, column):
         """Any live cell with fewer than two live neighbours dies (referred to as underpopulation)."""
 
-        if self.number_of_live_neighbors(board, row, column) <= 2:
+        if self.number_of_live_neighbors(board, row, column) < 2:
             return True
         else:
             return False
@@ -107,7 +107,7 @@ class ConwaysGameOfLife():
                     elif self.is_dead_overpopulation(self.board, row, col):
                         copy_board[row][col] = Cell.DEAD
                     elif self.is_still_alive_unchanged(self.board, row, col):
-                        pass # purposefully do nothing
+                        pass # purposefully do nothing, remaining alive
                 elif self.board[row][col] == Cell.DEAD:
                     if self.is_now_alive(self.board, row, col):
                         copy_board[row][col] = Cell.ALIVE
@@ -150,7 +150,7 @@ class Gui():
 
 
             #event, values = window.Read()
-            event, values = window.Read(timeout = 1000)
+            event, values = window.Read(timeout = 100)
 
             # window.Close()
 
