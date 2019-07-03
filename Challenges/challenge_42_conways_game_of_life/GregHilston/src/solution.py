@@ -122,7 +122,7 @@ class Gui():
             for column in range(self.conways_game_of_life.cols):
                 self.labels[row][column].configure(background="Black" if self.conways_game_of_life.board[row][column] == Cell.ALIVE else "White")
 
-        self.root_window.after(100, self.refresh)
+        self.root_window.after(150, self.refresh)
 
     def start(self):
         self.root_window = tk.Tk()
@@ -139,6 +139,6 @@ class Gui():
 
         self.refresh()
         self.root_window.mainloop()
-conways_game_of_life = ConwaysGameOfLife()
+conways_game_of_life = ConwaysGameOfLife(rows=30, cols=60)
 gui = Gui(conways_game_of_life)
 gui.start()
