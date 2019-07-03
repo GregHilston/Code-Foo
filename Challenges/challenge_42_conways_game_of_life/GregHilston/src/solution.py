@@ -116,23 +116,26 @@ class Gui():
         self.labels = []
 
     def refresh(self):
+        self.conways_game_of_life.update_board()
+
         for row in range(self.conways_game_of_life.rows):
             for column in range(self.conways_game_of_life.cols):
                 self.labels[row][column].configure(background="Black" if self.conways_game_of_life.board[row][column] == Cell.ALIVE else "White")
 
-        self.root_window.after(1000, refresh)
+        self.root_window.after(100, self.refresh)
 
     def start(self):
         self.root_window = tk.Tk()
         self.root_window.title("Grehg's Game of Life")
 
-        for row in range(self.conways_game_of_life.rows):
-            self.labels.append([])
-            for column in range(self.conways_game_of_life.cols):
-                label = tk.Label(self.root_window, height=1, width=1, background="Black" if self.conways_game_of_life.board[row][column] == Cell.ALIVE else "White")
-                self.labels[row][column] = label
+        if len(self.labels) == 0:
+            for row in range(self.conways_game_of_life.rows):
+                self.labels.append([])
+                for column in range(self.conways_game_of_life.cols):
+                    label = tk.Label(self.root_window, height=1, width=1, background="Black" if self.conways_game_of_life.board[row][column] == Cell.ALIVE else "White")
+                    self.labels[row].append(label)
 
-                label.grid(row=row, column=column)
+                    label.grid(row=row, column=column)
 
         self.refresh()
         self.root_window.mainloop()
