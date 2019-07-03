@@ -1,8 +1,4 @@
-import sys
-if sys.version_info[0] >= 3:
-    import PySimpleGUI as sg
-else:
-    import PySimpleGUI27 as sg
+import tkinter as tk
 from enum import Enum
 import random
 import copy
@@ -117,46 +113,29 @@ class ConwaysGameOfLife():
 class Gui():
     def __init__(self, conways_game_of_life: ConwaysGameOfLife):
         self.conways_game_of_life = conways_game_of_life
+        self.labels = []
 
-    def to_ui(self):
-        ui_board = [[]]
-
+    def refresh(self):
         for row in range(self.conways_game_of_life.rows):
-            columns = []
-            for col in range(self.conways_game_of_life.cols):
-                columns.append(
-                    sg.Text(
-                        size=(10, 1),
-                        pad=(1, 1),
-                        justification='right',
-                        key=(row,col),
-                        text=" ",
-                        background_color= "White" if self.conways_game_of_life.board[row][col] == Cell.DEAD else "Black"
-                    )
-                )
-            ui_board.append([sg.T('{}'.format(row), size=(4,1), justification='right')] + columns)
-        return ui_board
+            for column in range(self.conways_game_of_life.cols):
+                self.labels[row][column].configure(background="Black" if self.conways_game_of_life.board[row][column] == Cell.ALIVE else "White")
+
+        self.root_window.after(1000, refresh)
 
     def start(self):
-        sg.SetOptions(element_padding=(0,0))
+        self.root_window = tk.Tk()
+        self.root_window.title("Grehg's Game of Life")
 
-        while True:
-            columm_layout = self.to_ui()
+        for row in range(self.conways_game_of_life.rows):
+            self.labels.append([])
+            for column in range(self.conways_game_of_life.cols):
+                label = tk.Label(self.root_window, height=1, width=1, background="Black" if self.conways_game_of_life.board[row][column] == Cell.ALIVE else "White")
+                self.labels[row][column] = label
 
-            layout = [ [sg.T("Conway's Game of Life", font='Any 18')],
-                    [sg.Column(columm_layout, size=(800,600), scrollable=True)] ]
+                label.grid(row=row, column=column)
 
-            window = sg.Window('Table', return_keyboard_events=True).Layout(layout)
-
-
-            #event, values = window.Read()
-            event, values = window.Read(timeout = 100)
-
-            # window.Close()
-
-            self.conways_game_of_life.update_board()
-            time.sleep(1)
-
+        self.refresh()
+        self.root_window.mainloop()
 conways_game_of_life = ConwaysGameOfLife()
 gui = Gui(conways_game_of_life)
 gui.start()
