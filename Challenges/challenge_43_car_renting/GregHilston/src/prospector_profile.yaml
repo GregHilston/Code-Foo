@@ -1,0 +1,65 @@
+doc-warnings: yes
+test-warnings: yes
+strictness: veryhigh
+autodetect: yes
+max-line-length: 120
+ignore-paths:
+    # From Max
+    - ml_engine/fbprophet
+    # For creds
+    - config.py
+requirements:
+    - requirements.txt
+python-targets:
+    - 3
+pep8:
+    full: true
+    disable:
+      - N803
+      # Caused by importing at the end to protect us from cyclic dependencies. Described in URl in README.md
+      - E402
+      # We don't care about long lines in Code Foo
+      - E501
+pylint:
+    run: true
+    disable:
+      - no-value-for-parameter
+      - too-many-return-statements
+      - too-many-instance-attributes
+      - too-few-public-methods
+      - invalid-name
+      - too-many-ancestors
+      - unnecessary-lambmda
+      - expression-not-assigned
+      - broad-except
+      - too-many-locals
+      - too-many-arguments
+      # Ignored because it was being raised by pylint not being able to import "from requests.packages.urllib3.util.retry import Retry"
+      - import-error
+      # Ignored because pylint not smart enough to ignore Interfaces not having an __init__ method
+      - no-init
+      # False positive? caused by api/api.py importing the package app and importing the app module (__init__.py). This
+      # file is what defines flask_app, and then imports routes.py, which also imports flask_app.
+      - cyclic-import
+      # Caused by our Flask structure's api.py simply importing. Described in URl in README.md
+      - unused-import
+      # Caused by importing at the end to protect us from cyclic dependencies. Described in URl in README.md
+      - wrong-import-position
+      # Code foo doesn't care about this as its how we setup our tests
+      - no-self-use
+      # We don't care about long lines in Code Foo
+      - line-too-long
+pyflakes:
+    disable:
+      - F401
+pep257:
+    run: true
+    disable:
+      - D100
+      - D213
+      - D211
+      - D406
+      - D407
+mccabe:
+    disable:
+      - MC0001
