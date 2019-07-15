@@ -13,6 +13,35 @@ class CarRentingTests(unittest.TestCase):
         self.sut = CarRenting()
 
     def test1(self):
+        """Test using as basic as possible, with valid empty input"""
+        self.assertEqual(
+            (
+                0,
+                []
+            ),
+            self.sut.solve(
+                0,
+                [],
+                []
+            )
+        )
+
+    def test2(self):
+        """Test using simple input"""
+        self.assertEqual(
+            (
+                1,
+                [1, 2]
+            ),
+            self.sut.solve(
+                1,
+                [1],
+                [2]
+            )
+        )
+
+    @unittest.skip("skipping harder test for now")
+    def test3(self):
         """Test using default input/output given by challenge online."""
         self.assertEqual(
             (

@@ -1,6 +1,6 @@
 """Greg Hilston's source code solution to Code Foo challenge 43."""
 
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 from dataclasses import dataclass
 
 
@@ -25,4 +25,16 @@ class CarRenting:
         print(f"\tstart_times {start_times}")
         print(f"\tend_times {end_times}")
 
-        return (0, [])
+        # Store our data in a nice dictitonary mapping times to rentals
+        time_to_rental: Dict[int, List[int]] = {}
+        for rental_id in range(n):
+            for start_time, end_time in zip(start_times, end_times):
+                for rental_single_component in range(start_time, end_time + 1): # + 1 for inclusive on endpoint
+                    if rental_single_component not in time_to_rental:
+                        time_to_rental[rental_single_component] = []
+                    time_to_rental[rental_single_component].append(rental_id)
+        print(f"time_to_rental {time_to_rental}")
+
+        rentals_scheduled: Tuple[int, List[Tuple[int, int]]] = (len(time_to_rental), time_to_rental[0])
+
+        return rentals_scheduled
