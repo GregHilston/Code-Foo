@@ -136,7 +136,7 @@ class IntermediateSalesTests(unittest.TestCase):
             "Vanston": 5.21,
             "Danbree": 113.21,
             "Vansey": 45.45,
-            "Mundyke": 3.552
+            "Mundyke": 32.55
         }
 
         self.assertDictEqual(
