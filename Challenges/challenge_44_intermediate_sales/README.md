@@ -65,6 +65,16 @@ Your program should calculate the commission for each salesperson for the month.
                 Johnver Vanston Danbree Vansey  Mundyke
     Commission       92       5     113     45       32
 
+## Correction
+
+I found the following snippet on the original link below:
+
+	           Frank Jane
+	Commission  6.20 9.49
+
+
+	           Johnver Vanston Danbree Vansey Mundyke
+	Commission   92.32    5.21  113.21  45.45   32.55
 
 ## Acknowledgement
 
