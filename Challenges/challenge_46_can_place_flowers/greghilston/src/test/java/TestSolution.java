@@ -22,7 +22,7 @@ public class TestSolution {
     }
 
     @Test
-    public void testOne()  {
+    public void testTwo()  {
         boolean result = solution.solve(new int[] {1,0,0,0,1}, 2);
 
         assertFalse("There should not be room to plant two flowers. We only have room dead center.", result);
