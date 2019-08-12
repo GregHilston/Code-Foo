@@ -10,11 +10,8 @@ extension Int {
         for i in 1...limit {
             guard self.isDivisibleBy(i) else { continue }
             // add the current number and the other half
-            if self / i > limit {
-                divisors += 2
-            } else {
-                divisors += 1
-            }
+            let addTwo = self / i > limit
+            divisors += addTwo ? 2 : 1
         }
         return divisors
     }
