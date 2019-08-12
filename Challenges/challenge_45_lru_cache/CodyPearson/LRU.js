@@ -19,6 +19,15 @@ class LRU
     makeRoom()
     {
         if (this.cacheSize >= this.capacity) {
+            let oldestKey = null;
+            let oldestAccess = null;
+
+            for (let key in this.contents) {
+                if (oldestAccess === null || this.contents[key].lastAccess < oldestAccess) {
+                    oldestKey = key;
+                    oldestAccess = this.contents[key].lastAccess;
+                }
+            }
 
             delete this.contents[oldestKey];
             this.cacheSize--;
@@ -31,7 +40,7 @@ class LRU
             this.updateAccess(key);
             return this.contents[key].value;
         } else {
-            return null;
+            return -1;
         }
     }
 
