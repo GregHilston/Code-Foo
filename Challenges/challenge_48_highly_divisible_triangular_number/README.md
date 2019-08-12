@@ -1,5 +1,3 @@
-Special Code Foo done for an hour level up talk! Purposefully chosen to be easy to encourage individuals to try out new languages!
-
 _I suggest sorting this thread by *New* to see the most recent submissions_
 
 The goal of these coding challenges is for you to approach these however you'd like and to have us all communicate. Some people will write their answers in languages they know very well, others will try something completely new out. Regardless of your approach, post your solutions as a top level reply below.
