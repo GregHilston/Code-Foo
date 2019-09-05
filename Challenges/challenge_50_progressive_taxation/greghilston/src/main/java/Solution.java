@@ -3,6 +3,9 @@ import java.util.*;
 public class Solution  {
     /**
      * Calculates tax rate for Examplania.
+     *
+     * This is probably my worst solution to and Code Foo. Ever.
+     *
      * @param income to evaluate
      * @return tax rate
      */
@@ -66,6 +69,14 @@ public class Solution  {
                 System.out.println("returning taxRate: " + taxRate);
                 return taxRate;
             }
+        }
+
+        System.out.println("\noverflow bucket");
+        System.out.println("remainingIncome: " + remainingIncome);
+        if (remainingIncome > 0) {
+            taxRate += remainingIncome * 0.4;
+            System.out.println("adding: " + remainingIncome * 0.4);
+
         }
 
         System.out.println("returning taxRate: " + taxRate);
