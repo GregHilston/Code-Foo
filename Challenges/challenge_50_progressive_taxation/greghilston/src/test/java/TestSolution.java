@@ -53,7 +53,7 @@ public class TestSolution {
 
     @Test
     public void testSix()  {
-        int result = solution.solve(56789); // 10000 * 0.0 + 30000 * 0.10 + 16789 * .25
+        int result = solution.solve(56789); // 10000 * 0.0 + 20000 * 0.10 + 16789 * .25
 
         assertEquals(8697, result);
     }
@@ -63,13 +63,5 @@ public class TestSolution {
         int result = solution.solve(1234567);
 
         assertEquals(473326, result);
-    }
-
-    // I made this test
-    @Test
-    public void testEight()  {
-        int result = solution.solve(140010); // 10000 * 0.0 + 30000 * 0.10 + 100000 * 0.25 + 10 * 0.40
-
-        assertEquals(28004, result);
     }
 }

@@ -14,15 +14,15 @@ public class Solution  {
         // Ordered list of maximum value to tax rate for all but last bucket
         Map<Integer, Double> allButLastBucketTaxRates = new LinkedHashMap<>() {{
                 put(10000, 0.0);
-                put(30000, 0.10);
-                put(100000, 0.25);
+                put(20000, 0.10);
+                put(70000, 0.25);
         }};
 
         // Ordered list of maximum value to tax rate for all but last bucket
         Map<Integer, Integer> allButLastBucketUsed = new LinkedHashMap<>() {{
             put(10000, 0);
-            put(30000, 0);
-            put(100000, 0);
+            put(20000, 0);
+            put(70000, 0);
         }};
 
 
@@ -84,7 +84,6 @@ public class Solution  {
     }
 
     public static void main (String[] args) {
-        System.out.println("HELLO WORLD");
         new Solution().solve(0);
     }
  }
