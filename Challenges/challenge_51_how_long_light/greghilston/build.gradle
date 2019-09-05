@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.11'
+}
+
+task runApp(type:JavaExec) {
+    standardInput = System.in // Allows our input to still be read in
+    classpath = sourceSets.main.runtimeClasspath
+
+    main = project.hasProperty("mainClass") ? project.getProperty("mainClass") : "package.MyDefaultMain"
+}
